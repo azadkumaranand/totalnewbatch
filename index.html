@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javasript Basic</title>
+</head>
+<style>
+ h1{
+    color:  pink;
+ }
+</style>
+<body>
+    <h1>Hello Yogesh, How are</h1>
+
+    <script>
+        let content = document.querySelector('h1');
+        // console.log(typeof(content));
+        content.innerHTML = '<h2>Hello, Azad</h2>';
+
+        content.style.color = 'blue';
+        content.style.backgroundColor = 'red';
+
+        content.addEventListener('click', ()=>{
+            content.style.backgroundColor = 'green';
+        })
+
+    </script>
+</body>
+</html>
