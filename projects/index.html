@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manuplation</title>
+</head>
+<style>
+    .togglepara{
+        display: none;
+    }
+</style>
+<body>
+    <h1>Hello World</h1>
+    <p class="para1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente facilis atque debitis tempora et! Vitae eos facilis ut itaque delectus eligendi odit repellendus minima recusandae laudantium? Velit, quibusdam blanditiis! Veniam perferendis quo nobis iste.</p>
+    <p class="para2">
+
+    </p>
+    <button class="click-btn">Click Me</button>
+    <p class="togglepara">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus natus, perferendis quisquam possimus hic quaerat doloribus repellendus, maiores corrupti, ut molestias debitis facilis tempora officiis.</p>
+    <script>
+        //select class using getElementsByClassName
+        let para = document.getElementsByClassName('para1');
+        let para2 = document.querySelector('.para2');
+        let togglepara = document.querySelector('.togglepara');
+        //select class using querySelector
+        para = document.querySelector('.para1');
+        btn = document.querySelector('.click-btn');
+        console.log(para);
+
+        //add eventlistener
+        para.addEventListener('click', function(){
+            // console.log("para1 clicked");
+            para2.innerHTML = para.innerHTML;
+            para2.style.color = 'blue';
+        })
+
+        btn.addEventListener('click', ()=>{
+            // alert("You want to show paragraph!");
+            if(togglepara.style.display == "block"){
+                togglepara.style.display = "none";
+            }else{
+                togglepara.style.display = "block";
+            }
+            // togglepara.style.display = 'block';
+        })
+        
+    </script>
+</body>
+</html>
