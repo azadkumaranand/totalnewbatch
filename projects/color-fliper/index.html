@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        width: 100%;
+        height: 100vh;
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .bg-color-name{
+        background-color: black;
+        border-radius: 10px;
+        padding: 10px 15px;
+        color: white;
+    }
+
+    .btn{
+        outline: none;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 10px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+
+</style>
+<body>
+    <section class="container">
+        <div class="content">
+            <h1 class="bg-color-name">Background Color: <span></span></h1>
+            <button class="btn">Click Me</button>
+        </div>
+    </section>
+    <script>
+        // let color = []
+        
+        // console.log(firstnum);
+        // rgb(233,233, 45);
+        let container = document.querySelector('.container');
+        let colorText = document.querySelector('.bg-color-name span');
+        let btn = document.querySelector('.btn');
+
+        //create a color array
+        let color = ['yellow', 'red', 'green', 'blue', 'cyan', 'pink'];
+        let colorLength = color.length;
+        
+
+        btn.addEventListener('click', function(){
+            let firstnum = Math.floor(Math.random()*255);
+            let firstnum1 = Math.floor(Math.random()*100);
+            let firstnum2 = Math.floor(Math.random()*150);
+            // alert("hello")
+            
+            let generatedColor = `rgb(${firstnum},${firstnum1}, ${firstnum2})`;
+            // container.style.backgroundColor = generatedColor;
+            let index = Math.floor(Math.random()*colorLength);
+            container.style.backgroundColor = color[index];
+            // colorText.innerText = generatedColor;
+            colorText.innerText = color[index];
+        });
+
+    </script>
+</body>
+</html>
