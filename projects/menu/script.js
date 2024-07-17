@@ -82,10 +82,48 @@ const products = [
   ];
 
 const sectionCenter = document.querySelector('.section-center');
-const all = document.querySelector('.section-center');
-const lunch = document.querySelector('.section-center');
-const shakes = document.querySelector('.section-center');
-const dinner = document.querySelector('.section-center');
+
+const MenuBtn = document.querySelectorAll('.menu-btn');
+
+
+// function Myfunc (){
+
+// }
+// const Myfunc = ()=>{
+
+// }
+let filterarr = [];
+MenuBtn.forEach(function(button){
+  button.addEventListener('click', (element)=>{
+    // alert(element.target.innerText)
+    
+    filterarr = products.filter(function(product){
+      if(element.target.innerText.trim().toLowerCase() == 'all'){
+        return true;
+      }else{
+        return product.category == element.target.innerText.trim().toLowerCase();
+      }
+      
+    })
+    sectionCenter.innerHTML = '';
+    filterarr.map(function(product){
+      return(
+          sectionCenter.innerHTML = sectionCenter.innerHTML + `<article class="menu-item">
+                                  <img src="${product.img}" class="photo" alt="buttermilk" pancakes="">
+                                  <div class="item-info">
+                                      <header>
+                                          <h4>${product.title}</h4>
+                                          <h4 class="price">$${product.price}</h4>
+                                      </header>
+                                      <p class="item-text">
+                                      ${product.desc}
+                                      </p>
+                                  </div>`
+      )
+  })
+  })
+});
+
 
 products.map(function(product){
     return(
