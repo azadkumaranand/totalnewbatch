@@ -17,10 +17,20 @@ if(index == 0){
 nextBtn.addEventListener('click', function(){
     index++;
     if(index < slides.length){
-        let slide = slides[index];
-        slide.style.left = 0;
-        let prevSlide = slides[index-1];
-        prevSlide.style.left = `-${index * 100}%`;
+        // let slide = slides[index];
+        let count = 0;
+        for(let i = index; i<slides.length; i++){
+            slides[i].style.left = `${count*100}%`;
+            count++;
+        }
+
+        let prevCount = index;
+
+        for(let i = 0; i < index; i++){
+            slides[i].style.left = `-${prevCount * 100}%`;
+            prevCount--;
+        }
+        
     }
     prevBtn.style.display = 'block';
     if(index == slides.length-1){
